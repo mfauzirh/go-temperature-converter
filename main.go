@@ -1,8 +1,30 @@
 package main
 
-func main() {
+import "fmt"
 
+func main() {
+	fmt.Println("Choose temperature converter:")
+	fmt.Println("1. Celcius to Fahrenheit")
+	fmt.Println("2. Celcius to Kelvin")
+	fmt.Println("3. Fahrenheit to Celcius")
+	fmt.Println("4. Fahrenheit to Kelvin")
+	fmt.Println("5. Kelvin to Celcius")
+	fmt.Println("6. Kelvin to Fahrenheit")
+	fmt.Print("Your choice: ")
+
+	var choice int8
+	for {
+		fmt.Print("Your choice: ")
+		_, err := fmt.Scanln(&choice)
+		if err != nil || choice < 1 || choice > 6 {
+			fmt.Println("Option doesn't exists.")
+			continue
+		}
+
+		break
+	}
 }
+
 func CelciusToFahrenheit(celcius float64) float64 {
 	fahrenheit := (9.0 / 5.0 * celcius) + 32
 	return fahrenheit
